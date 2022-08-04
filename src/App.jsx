@@ -1,7 +1,14 @@
 import React from "react";
+import { GlobalStorage } from "./GlobalContext";
+
+import TodoContainer from "./components/TodoContainer";
 
 const App = () => {
-  return <div>App React</div>;
+  return (
+    <GlobalStorage>
+      <TodoContainer />
+    </GlobalStorage>
+  );
 };
 
 export default App;
