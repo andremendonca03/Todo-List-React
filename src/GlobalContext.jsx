@@ -5,12 +5,26 @@ export const GlobalContext = React.createContext();
 
 export const GlobalStorage = ({ children }) => {
   const [input, setInput] = React.useState("");
-  const [todoItem, setTodoItem] = React.useState([]);
+  const [local, setLocal] = useLocalStorage(`todoItems`, ``);
+  const [todoItems, setTodoItems] = React.useState([]);
   const [count, setCount] = React.useState(0);
+  const [itemId, setItemId] = useLocalStorage(`itemId`, `${count}`);
 
   return (
     <GlobalContext.Provider
-      value={{ useLocalStorage, input, setInput, todoItem, setTodoItem, count, setCount }}
+      value={{
+        useLocalStorage,
+        input,
+        setInput,
+        todoItems,
+        setTodoItems,
+        local,
+        setLocal,
+        count,
+        setCount,
+        itemId,
+        setItemId,
+      }}
     >
       {children}
     </GlobalContext.Provider>

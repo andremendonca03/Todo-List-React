@@ -1,3 +1,95 @@
+@import "reset";
+
 body {
-  font-size: 1rem;
+  font-size: 1.8rem;
+  background-color: #023047;
+  font-family: "Quicksand", sans-serif;
+}
+
+.todo-container {
+  max-width: 600px;
+  background-color: #fff;
+  padding: 10px 50px;
+  border-radius: 5px;
+  margin: 120px auto 0px auto;
+  .todo-title {
+    max-width: fit-content;
+    font-size: 3.6rem;
+    font-weight: 700;
+    
+    margin: 0px auto 10px auto;
+  }
+  .todo-theme {
+    display: block;
+    max-width: fit-content;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0px auto 20px auto;
+    select {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      border: 2px solid #000;
+      border-radius: 5px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  .input-field {
+    flex: 0 1 435px;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    padding: 15px 25px;
+    border: 2px solid #8ECAE6;
+    border-radius: 5px;
+    margin: 20px 0px;
+
+  }
+  .input-btn {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-family: inherit;
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: #8ECAE6;
+    background-color: transparent;
+    padding: 0px 20px;
+    border: 2px solid #8ECAE6;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+}
+
+.list {
+  .list-item {
+    display: grid;
+    grid-template-columns: 40px 1fr 20px;
+    color: #2B6786;
+    padding: 5px 15px;
+    border: 2px solid #8ECAE6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    .list-item-check {
+      justify-self: start;
+      grid-row: 1;
+      cursor: pointer;
+    }
+    .list-item-text {
+      justify-self: start;
+      grid-row: 1;
+    }
+    .list-item-delete {
+      justify-self: end;
+      grid-row: 1;
+      cursor: pointer;
+    }
+  }
 }

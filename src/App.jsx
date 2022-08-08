@@ -1,6 +1,5 @@
 import React from "react";
 import { GlobalStorage } from "./GlobalContext";
-
 import TodoContainer from "./components/TodoContainer";
 
 const App = () => {
