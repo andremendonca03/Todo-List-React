@@ -16,7 +16,6 @@ body {
     max-width: fit-content;
     font-size: 3.6rem;
     font-weight: 700;
-    
     margin: 0px auto 10px auto;
   }
   .todo-theme {
@@ -26,9 +25,6 @@ body {
     font-weight: 700;
     margin: 0px auto 20px auto;
     select {
-      font-family: inherit;
-      font-size: inherit;
-      font-weight: inherit;
       border: 2px solid #000;
       border-radius: 5px;
       margin-left: 20px;
@@ -41,14 +37,10 @@ body {
   align-items: center;
   .input-field {
     flex: 0 1 435px;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
     padding: 15px 25px;
-    border: 2px solid #8ECAE6;
+    border: 2px solid #8ecae6;
     border-radius: 5px;
     margin: 20px 0px;
-
   }
   .input-btn {
     width: 58px;
@@ -56,13 +48,12 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
-    font-family: inherit;
     font-size: 3.5rem;
     font-weight: 500;
-    color: #8ECAE6;
+    color: #8ecae6;
     background-color: transparent;
     padding: 0px 20px;
-    border: 2px solid #8ECAE6;
+    border: 2px solid #8ecae6;
     border-radius: 5px;
     margin-left: 5px;
   }
@@ -70,26 +61,67 @@ body {
 
 .list {
   .list-item {
-    display: grid;
-    grid-template-columns: 40px 1fr 20px;
-    color: #2B6786;
-    padding: 5px 15px;
-    border: 2px solid #8ECAE6;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #2b6786;
+    padding: 5px;
+    border: 2px solid #8ecae6;
     border-radius: 5px;
     margin-bottom: 10px;
+    .list-item-detail {
+      width: 2px;
+      height: 25px;
+      background-color: #219ebc;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
     .list-item-check {
-      justify-self: start;
-      grid-row: 1;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 0px 2px #219ebc;
+      margin-right: 10px;
       cursor: pointer;
     }
     .list-item-text {
-      justify-self: start;
-      grid-row: 1;
+      flex: 1 1 400px;
+      width: 100%;
     }
     .list-item-delete {
-      justify-self: end;
-      grid-row: 1;
+      justify-self: flex-end;
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+      position: relative;
       cursor: pointer;
+      &::before,
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 2px;
+        height: 14px;
+        background-color: #fb5a00;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 6px;
+        right: 11px;
+      }
+      &::after {
+        transform: rotate(135deg);
+      }
+    }
+    &[data-checked="true"] {
+      .list-item-check {
+        background-color: #219ebc;
+        border: 2px solid #fff;
+        box-shadow: 0px 0px 0px 2px #219ebc;
+      }
+      .list-item-text {
+        color: #9bb1bc;
+        text-decoration: line-through;
+      }
     }
   }
 }
