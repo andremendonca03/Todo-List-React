@@ -5,8 +5,8 @@ export const GlobalContext = React.createContext();
 
 export const GlobalStorage = ({ children }) => {
   const [input, setInput] = React.useState("");
-  const [local, setLocal] = useLocalStorage(`todoItems`, ``);
   const [todoItems, setTodoItems] = React.useState([]);
+  const [local, setLocal] = useLocalStorage(`todoItems`, ``);
   const [count, setCount] = React.useState(0);
   const [itemId, setItemId] = useLocalStorage(`itemId`, `${count}`);
 
