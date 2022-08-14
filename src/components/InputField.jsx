@@ -15,12 +15,12 @@ const InputField = () => {
   function handleClick() {
     if (global.input) {
       global.setTodoItems([
-        ...global.todoItems,
         {
           text: global.input,
           id: global.count,
           checked: false,
         },
+        ...global.todoItems,
       ]);
       global.setCount((prev) => prev + 1);
       global.setInput("");
