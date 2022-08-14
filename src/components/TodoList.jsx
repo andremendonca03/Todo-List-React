@@ -27,7 +27,7 @@ const TodoList = () => {
 
   function handleDelete({ target }) {
     const actualItem = target.parentElement;
-    
+
     global.setTodoItems((prev) => {
       const arrayReduced = prev.reduce((acc, item) => {
         if (item.id !== Number.parseInt(actualItem.getAttribute("id"))) {
@@ -41,6 +41,17 @@ const TodoList = () => {
     });
   }
 
+  React.useEffect(() => {
+    const emptyCheck = window.setInterval(() => {
+      if (!global.todoItems[0]) {
+        global.setCount(0);
+      }
+    }, 1);
+    return () => {
+      window.clearInterval(emptyCheck);
+    }
+  }, [global.todoItems]);
+
   return (
     <ul className="list">
       {global.todoItems.map((item) => {
@@ -53,7 +64,9 @@ const TodoList = () => {
           >
             <span className="list-item-detail"></span>
             <span className="list-item-check" onClick={handleCheck}></span>
-            <p className="list-item-text">{item.text}</p>
+            <p className="list-item-text">
+              {item.text}
+            </p>
             <span className="list-item-delete" onClick={handleDelete}></span>
           </li>
         );
