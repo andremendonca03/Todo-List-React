@@ -13,17 +13,18 @@ const InputField = () => {
   }
 
   function handleClick() {
-    global.setTodoItems([
-      ...global.todoItems,
-      {
-        text: global.input,
-        id: global.count,
-        checked: false,
-      },
-    ]);
-
-    global.setCount((prev) => prev + 1);
-    global.setInput("");
+    if (global.input) {
+      global.setTodoItems([
+        ...global.todoItems,
+        {
+          text: global.input,
+          id: global.count,
+          checked: false,
+        },
+      ]);
+      global.setCount((prev) => prev + 1);
+      global.setInput("");
+    }
   }
 
   React.useEffect(() => {
@@ -40,7 +41,7 @@ const InputField = () => {
   React.useEffect(() => {
     global.setLocal(JSON.stringify(global.todoItems));
     global.setItemId(global.count);
-  }, [global.todoItems]);
+  }, [global.todoItems, global.itemId]);
 
   return (
     <div className="input">
