@@ -1,0 +1,38 @@
+/*============
+    Colors
+============*/
+
+$color-shadow: rgba(0, 0, 0, .1);
+$color-checked: #888888;
+$color-delete: #FB5A00;
+
+/*STANDARD THEME*/
+
+$color-font: #01001E;
+$color-bg1: #03A678;
+$color-bg2: #02735E;
+$color-bg3: #014040;
+$color-container: #B9E7DBCC;
+$color-btn: #F27405;
+$color-details: #731702;
+
+
+/*============
+  Typography
+============*/
+
+@mixin font($type) {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.25;
+  letter-spacing: 0px;
+  @if $type == title {
+    font-size: 3.6rem;
+    font-weight: 700;
+  } @else if $type == theme {
+    font-weight: 700;
+  } @else if $type == normal {}
+}
