@@ -1,33 +1,42 @@
 @import "reset";
+@import "mixins";
+
+html {
+  background-image: linear-gradient(45deg, $color-bg1, $color-bg2, $color-bg3);
+  background-size: 800% 800%;
+  animation: bgMove 5s ease-in-out alternate infinite;
+}
 
 body {
-  font-size: 1.8rem;
-  background-color: #023047;
-  font-family: "Quicksand", sans-serif;
+  color: $color-font;
+  background-color: transparent;
+  @include font(normal);
 }
 
 .todo-container {
   max-width: 600px;
-  background-color: #fff;
+  background-color: $color-container;
+  backdrop-filter: blur(25px);
   padding: 10px 50px;
   border-radius: 5px;
-  margin: 120px auto 0px auto;
+  box-shadow: 5px 5px 5px $color-shadow;
+  margin: 120px auto 60px auto;
   .todo-title {
     max-width: fit-content;
-    font-size: 3.6rem;
-    font-weight: 700;
     margin: 0px auto 10px auto;
+    @include font(title);
   }
   .todo-theme {
     display: block;
     max-width: fit-content;
-    font-size: 1.8rem;
-    font-weight: 700;
     margin: 0px auto 20px auto;
+    @include font(theme);
     select {
-      border: 2px solid #000;
+      background-color: transparent;
+      border: 2px solid $color-font;
       border-radius: 5px;
       margin-left: 20px;
+      cursor: pointer;
     }
   }
 }
@@ -37,8 +46,9 @@ body {
   align-items: center;
   .input-field {
     flex: 0 1 435px;
+    background-color: transparent;
     padding: 15px 25px;
-    border: 2px solid #8ecae6;
+    border: 2px solid $color-font;
     border-radius: 5px;
     margin: 20px 0px;
   }
@@ -50,12 +60,16 @@ body {
     align-content: center;
     font-size: 3.5rem;
     font-weight: 500;
-    color: #8ecae6;
+    color: $color-btn;
     background-color: transparent;
     padding: 0px 20px;
-    border: 2px solid #8ecae6;
+    border: 2px solid $color-font;
     border-radius: 5px;
     margin-left: 5px;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.039);
+    }
   }
 }
 
@@ -64,24 +78,24 @@ body {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    color: #2b6786;
+    color: $color-font;
     padding: 5px;
-    border: 2px solid #8ecae6;
+    border: 2px solid $color-details;
     border-radius: 5px;
     margin-bottom: 10px;
     .list-item-detail {
       width: 2px;
       height: 25px;
-      background-color: #219ebc;
+      background-color: $color-details;
       border-radius: 5px;
       margin-right: 5px;
     }
     .list-item-check {
       width: 15px;
       height: 15px;
-      border: 2px solid #fff;
+      border: 2px solid $color-container;
       border-radius: 5px;
-      box-shadow: 0px 0px 0px 2px #219ebc;
+      box-shadow: 0px 0px 0px 2px $color-details;
       margin-right: 10px;
       cursor: pointer;
     }
@@ -102,7 +116,7 @@ body {
         display: inline-block;
         width: 2px;
         height: 14px;
-        background-color: #fb5a00;
+        background-color: $color-delete;
         transform: rotate(45deg);
         position: absolute;
         top: 6px;
@@ -114,14 +128,22 @@ body {
     }
     &[data-checked="true"] {
       .list-item-check {
-        background-color: #219ebc;
-        border: 2px solid #fff;
-        box-shadow: 0px 0px 0px 2px #219ebc;
+        background-color: $color-details;
+        border: 2px solid $color-container;
+        box-shadow: 0px 0px 0px 2px $color-details;
       }
       .list-item-text {
-        color: #9bb1bc;
+        color: $color-checked;
         text-decoration: line-through;
       }
     }
+  }
+}
+
+@keyframes bgMove {
+  from {
+    background-position: 0%;
+  } to {
+    background-position: 100%;
   }
 }

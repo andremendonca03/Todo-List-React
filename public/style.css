@@ -78,27 +78,58 @@ img {
   -o-user-drag: none;
 }
 
+/*============
+    Colors
+============*/
+/*STANDARD THEME*/
+/*============
+  Typography
+============*/
+html {
+  background-image: linear-gradient(45deg, #03A678, #02735E, #014040);
+  background-size: 800% 800%;
+  -webkit-animation: bgMove 5s ease-in-out alternate infinite;
+          animation: bgMove 5s ease-in-out alternate infinite;
+}
+
 body {
-  font-size: 1.8rem;
-  background-color: #023047;
+  color: #01001E;
+  background-color: transparent;
   font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.25;
+  letter-spacing: 0px;
 }
 
 .todo-container {
   max-width: 600px;
-  background-color: #fff;
+  background-color: #B9E7DBCC;
+  -webkit-backdrop-filter: blur(25px);
+          backdrop-filter: blur(25px);
   padding: 10px 50px;
   border-radius: 5px;
-  margin: 120px auto 0px auto;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  margin: 120px auto 60px auto;
 }
 
 .todo-container .todo-title {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
+  margin: 0px auto 10px auto;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.25;
+  letter-spacing: 0px;
   font-size: 3.6rem;
   font-weight: 700;
-  margin: 0px auto 10px auto;
 }
 
 .todo-container .todo-theme {
@@ -106,15 +137,23 @@ body {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  font-size: 1.8rem;
-  font-weight: 700;
   margin: 0px auto 20px auto;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.25;
+  letter-spacing: 0px;
+  font-weight: 700;
 }
 
 .todo-container .todo-theme select {
-  border: 2px solid #000;
+  background-color: transparent;
+  border: 2px solid #01001E;
   border-radius: 5px;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .input {
@@ -130,8 +169,9 @@ body {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 435px;
           flex: 0 1 435px;
+  background-color: transparent;
   padding: 15px 25px;
-  border: 2px solid #8ecae6;
+  border: 2px solid #01001E;
   border-radius: 5px;
   margin: 20px 0px;
 }
@@ -148,12 +188,19 @@ body {
       align-content: center;
   font-size: 3.5rem;
   font-weight: 500;
-  color: #8ecae6;
+  color: #F27405;
   background-color: transparent;
   padding: 0px 20px;
-  border: 2px solid #8ecae6;
+  border: 2px solid #01001E;
   border-radius: 5px;
   margin-left: 5px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.input .input-btn:hover {
+  -webkit-transform: scale(1.039);
+          transform: scale(1.039);
 }
 
 .list .list-item {
@@ -165,9 +212,9 @@ body {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  color: #2b6786;
+  color: #01001E;
   padding: 5px;
-  border: 2px solid #8ecae6;
+  border: 2px solid #731702;
   border-radius: 5px;
   margin-bottom: 10px;
 }
@@ -175,7 +222,7 @@ body {
 .list .list-item .list-item-detail {
   width: 2px;
   height: 25px;
-  background-color: #219ebc;
+  background-color: #731702;
   border-radius: 5px;
   margin-right: 5px;
 }
@@ -183,10 +230,10 @@ body {
 .list .list-item .list-item-check {
   width: 15px;
   height: 15px;
-  border: 2px solid #fff;
+  border: 2px solid #B9E7DBCC;
   border-radius: 5px;
-  -webkit-box-shadow: 0px 0px 0px 2px #219ebc;
-          box-shadow: 0px 0px 0px 2px #219ebc;
+  -webkit-box-shadow: 0px 0px 0px 2px #731702;
+          box-shadow: 0px 0px 0px 2px #731702;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -212,7 +259,7 @@ body {
   display: inline-block;
   width: 2px;
   height: 14px;
-  background-color: #fb5a00;
+  background-color: #FB5A00;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   position: absolute;
@@ -226,13 +273,31 @@ body {
 }
 
 .list .list-item[data-checked="true"] .list-item-check {
-  background-color: #219ebc;
-  border: 2px solid #fff;
-  -webkit-box-shadow: 0px 0px 0px 2px #219ebc;
-          box-shadow: 0px 0px 0px 2px #219ebc;
+  background-color: #731702;
+  border: 2px solid #B9E7DBCC;
+  -webkit-box-shadow: 0px 0px 0px 2px #731702;
+          box-shadow: 0px 0px 0px 2px #731702;
 }
 
 .list .list-item[data-checked="true"] .list-item-text {
-  color: #9bb1bc;
+  color: #888888;
   text-decoration: line-through;
+}
+
+@-webkit-keyframes bgMove {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 100%;
+  }
+}
+
+@keyframes bgMove {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 100%;
+  }
 }
