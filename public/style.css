@@ -82,6 +82,8 @@ img {
     Colors
 ============*/
 /*STANDARD THEME*/
+/*BEACH THEME*/
+/*SPACE THEME*/
 /*============
   Typography
 ============*/
@@ -149,11 +151,17 @@ body {
 }
 
 .todo-container .todo-theme select {
+  color: #01001E;
   background-color: transparent;
   border: 2px solid #01001E;
   border-radius: 5px;
   margin-left: 20px;
   cursor: pointer;
+}
+
+.todo-container .todo-theme select option {
+  color: #01001E;
+  background-color: #B9E7DBCC;
 }
 
 .input {
@@ -169,6 +177,7 @@ body {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 435px;
           flex: 0 1 435px;
+  color: #01001E;
   background-color: transparent;
   padding: 15px 25px;
   border: 2px solid #01001E;
@@ -212,7 +221,6 @@ body {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  color: #01001E;
   padding: 5px;
   border: 2px solid #731702;
   border-radius: 5px;
@@ -300,4 +308,114 @@ body {
   to {
     background-position: 100%;
   }
+}
+
+/*============
+    THEMES
+============*/
+html[data-theme="beach"] {
+  background-image: linear-gradient(45deg, #53bdc9, #57B7F5, #545DF5);
+}
+
+html[data-theme="beach"] body {
+  color: #000F1E;
+}
+
+html[data-theme="beach"] .todo-container {
+  background-color: #BEE1FDCC;
+}
+
+html[data-theme="beach"] .todo-container .todo-theme select {
+  color: #000F1E;
+  border: 2px solid #000F1E;
+}
+
+html[data-theme="beach"] .todo-container .todo-theme select option {
+  color: #000F1E;
+  background-color: #BEE1FDCC;
+}
+
+html[data-theme="beach"] .input .input-field {
+  color: #000F1E;
+  border: 2px solid #000F1E;
+}
+
+html[data-theme="beach"] .input .input-btn {
+  color: #F29877;
+  border: 2px solid #000F1E;
+}
+
+html[data-theme="beach"] .list .list-item {
+  border: 2px solid #F29877;
+}
+
+html[data-theme="beach"] .list .list-item .list-item-detail {
+  background-color: #F29877;
+}
+
+html[data-theme="beach"] .list .list-item .list-item-check {
+  border: 2px solid #BEE1FDCC;
+  -webkit-box-shadow: 0px 0px 0px 2px #F29877;
+          box-shadow: 0px 0px 0px 2px #F29877;
+}
+
+html[data-theme="beach"] .list .list-item[data-checked="true"] .list-item-check {
+  background-color: #F29877;
+  border: 2px solid #BEE1FDCC;
+  -webkit-box-shadow: 0px 0px 0px 2px #F29877;
+          box-shadow: 0px 0px 0px 2px #F29877;
+}
+
+html[data-theme="space"] {
+  background-image: linear-gradient(45deg, #010220, #04093d, #2e0202);
+}
+
+html[data-theme="space"] body {
+  color: #D3E1F0;
+}
+
+html[data-theme="space"] .todo-container {
+  background-color: #0554F2CC;
+}
+
+html[data-theme="space"] .todo-container .todo-theme select {
+  color: #D3E1F0;
+  border: 2px solid #D3E1F0;
+}
+
+html[data-theme="space"] .todo-container .todo-theme select option {
+  color: #D3E1F0;
+  background-color: #0554F2CC;
+}
+
+html[data-theme="space"] .input .input-field {
+  color: #D3E1F0;
+  border: 2px solid #D3E1F0;
+}
+
+html[data-theme="space"] .input .input-btn {
+  color: #E2F2A7;
+  border: 2px solid #D3E1F0;
+}
+
+html[data-theme="space"] .list .list-item {
+  color: #01001E;
+  border: 2px solid #E2F2A7;
+}
+
+html[data-theme="space"] .list .list-item .list-item-detail {
+  background-color: #E2F2A7;
+}
+
+html[data-theme="space"] .list .list-item .list-item-check {
+  border: 2px solid #0554F2CC;
+  -webkit-box-shadow: 0px 0px 0px 2px #E2F2A7;
+          box-shadow: 0px 0px 0px 2px #E2F2A7;
+}
+
+html[data-theme="space"] .list .list-item[data-checked="true"] .list-item-check {
+  background-color: #E2F2A7;
+  border: 2px solid #0554F2CC;
+  -webkit-box-shadow: 0px 0px 0px 2px #E2F2A7;
+          box-shadow: 0px 0px 0px 2px #E2F2A7;
 }
