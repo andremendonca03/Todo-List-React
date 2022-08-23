@@ -10,6 +10,9 @@ export const GlobalStorage = ({ children }) => {
   const [count, setCount] = React.useState(0);
   const [itemId, setItemId] = useLocalStorage(`itemId`, `${count}`);
 
+  const [theme, setTheme] = React.useState("standard");
+  const [themeLocal, setThemeLocal] = useLocalStorage(`theme`, `${theme}`);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -24,6 +27,10 @@ export const GlobalStorage = ({ children }) => {
         setCount,
         itemId,
         setItemId,
+        theme,
+        setTheme,
+        themeLocal,
+        setThemeLocal,
       }}
     >
       {children}
