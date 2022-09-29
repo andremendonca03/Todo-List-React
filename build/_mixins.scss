@@ -1,0 +1,55 @@
+/*============
+    Colors
+============*/
+
+$color-shadow: rgba(0, 0, 0, .1);
+$color-checked: #888888;
+$color-delete: #FB5A00;
+
+/*STANDARD THEME*/
+
+$color-font: #01001E;
+$color-bg1: #03A678;
+$color-bg2: #02735E;
+$color-bg3: #014040;
+$color-container: #B9E7DBCC;
+$color-btn: #F27405;
+$color-details: #731702;
+
+/*BEACH THEME*/
+$color-beach-font: #000F1E;
+$color-beach-bg1: #53bdc9;  
+$color-beach-bg2: #57B7F5;
+$color-beach-bg3: #545DF5;
+$color-beach-container: #BEE1FDCC;
+$color-beach-btn: #F29877;
+$color-beach-details: #F29877;
+
+/*SPACE THEME*/
+$color-space-font: #D3E1F0;
+$color-space-bg1: #010220;  
+$color-space-bg2: #04093d;
+$color-space-bg3: #2e0202;
+$color-space-container: #0554F2CC;
+$color-space-btn: #E2F2A7;
+$color-space-details: #E2F2A7;
+
+/*============
+  Typography
+============*/
+
+@mixin font($type) {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.25;
+  letter-spacing: 0px;
+  @if $type == title {
+    font-size: 3.6rem;
+    font-weight: 700;
+  } @else if $type == theme {
+    font-weight: 700;
+  } @else if $type == normal {}
+}

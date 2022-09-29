@@ -1,0 +1,258 @@
+@import "reset";
+@import "mixins";
+
+html {
+  background-image: linear-gradient(45deg, $color-bg1, $color-bg2, $color-bg3);
+  background-size: 800% 800%;
+  animation: bgMove 5s ease-in-out alternate infinite;
+}
+
+body {
+  color: $color-font;
+  background-color: transparent;
+  @include font(normal);
+}
+
+.todo-container {
+  max-width: 600px;
+  background-color: $color-container;
+  backdrop-filter: blur(25px);
+  padding: 10px 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px $color-shadow;
+  margin: 120px auto 60px auto;
+  .todo-title {
+    max-width: fit-content;
+    margin: 0px auto 10px auto;
+    @include font(title);
+  }
+  .todo-theme {
+    display: block;
+    max-width: fit-content;
+    margin: 0px auto 20px auto;
+    @include font(theme);
+    select {
+      color: $color-font;
+      background-color: transparent;
+      border: 2px solid $color-font;
+      border-radius: 5px;
+      margin-left: 20px;
+      cursor: pointer;
+      option {
+        color: $color-font;
+        background-color: $color-container;
+      }
+    }
+  }
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  .input-field {
+    flex: 0 1 435px;
+    color: $color-font;
+    background-color: transparent;
+    padding: 15px 25px;
+    border: 2px solid $color-font;
+    border-radius: 5px;
+    margin: 20px 0px;
+  }
+  .input-btn {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: $color-btn;
+    background-color: transparent;
+    padding: 0px 20px;
+    border: 2px solid $color-font;
+    border-radius: 5px;
+    margin-left: 5px;
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.039);
+    }
+  }
+}
+
+.list {
+  .list-item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    //color: $color-font;
+    padding: 5px;
+    border: 2px solid $color-details;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    .list-item-detail {
+      width: 2px;
+      height: 25px;
+      background-color: $color-details;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+    .list-item-check {
+      width: 15px;
+      height: 15px;
+      border: 2px solid $color-container;
+      border-radius: 5px;
+      box-shadow: 0px 0px 0px 2px $color-details;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .list-item-text {
+      flex: 1 1 400px;
+      width: 100%;
+    }
+    .list-item-delete {
+      justify-self: flex-end;
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+      position: relative;
+      cursor: pointer;
+      &::before,
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 2px;
+        height: 14px;
+        background-color: $color-delete;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 6px;
+        right: 11px;
+      }
+      &::after {
+        transform: rotate(135deg);
+      }
+    }
+    &[data-checked="true"] {
+      .list-item-check {
+        background-color: $color-details;
+        border: 2px solid $color-container;
+        box-shadow: 0px 0px 0px 2px $color-details;
+      }
+      .list-item-text {
+        color: $color-checked;
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+
+@keyframes bgMove {
+  from {
+    background-position: 0%;
+  } to {
+    background-position: 100%;
+  }
+}
+
+/*============
+    THEMES
+============*/
+
+html[data-theme="beach"] {
+  background-image: linear-gradient(45deg, $color-beach-bg1, $color-beach-bg2, $color-beach-bg3);
+  body {
+    color: $color-beach-font;
+  }
+  .todo-container {
+    background-color: $color-beach-container;
+    .todo-theme {
+      select {
+        color: $color-beach-font;
+        border: 2px solid $color-beach-font;
+        option {
+          color: $color-beach-font;
+          background-color: $color-beach-container;
+        }
+      }
+    }
+  }
+  .input {
+    .input-field {
+      color: $color-beach-font;
+      border: 2px solid $color-beach-font;
+    }
+    .input-btn {
+      color: $color-beach-btn;
+      border: 2px solid $color-beach-font;
+    }
+  }
+  .list {
+    .list-item {
+      border: 2px solid $color-beach-details;
+      .list-item-detail {
+        background-color: $color-beach-details;
+      }
+      .list-item-check {
+        border: 2px solid $color-beach-container;
+        box-shadow: 0px 0px 0px 2px $color-beach-details;
+      }
+      &[data-checked="true"] {
+        .list-item-check {
+          background-color: $color-beach-details;
+          border: 2px solid $color-beach-container;
+          box-shadow: 0px 0px 0px 2px $color-beach-details;
+        }
+      }
+    }
+  }
+}
+
+html[data-theme="space"] {
+  background-image: linear-gradient(45deg, $color-space-bg1, $color-space-bg2, $color-space-bg3);
+  body {
+    color: $color-space-font;
+  }
+  .todo-container {
+    background-color: $color-space-container;
+    .todo-theme {
+      select {
+        color: $color-space-font;
+        border: 2px solid $color-space-font;
+        option {
+          color: $color-space-font;
+          background-color: $color-space-container;
+        }
+      }
+    }
+  }
+  .input {
+    .input-field {
+      color: $color-space-font;
+      border: 2px solid $color-space-font;
+    }
+    .input-btn {
+      color: $color-space-btn;
+      border: 2px solid $color-space-font;
+    }
+  }
+  .list {
+    .list-item {
+      color: $color-font;
+      border: 2px solid $color-space-details;
+      .list-item-detail {
+        background-color: $color-space-details;
+      }
+      .list-item-check {
+        border: 2px solid $color-space-container;
+        box-shadow: 0px 0px 0px 2px $color-space-details;
+      }
+      &[data-checked="true"] {
+        .list-item-check {
+          background-color: $color-space-details;
+          border: 2px solid $color-space-container;
+          box-shadow: 0px 0px 0px 2px $color-space-details;
+        }
+      }
+    }
+  }
+}
